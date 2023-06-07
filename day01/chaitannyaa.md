@@ -175,7 +175,7 @@ export AWS_SECRET_ACCESS_KEY="your_aws_secret_key"
 ```
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/ff61560a-eef7-4134-869c-42db3e4eb925)
 
-For Linux and macOS, you can do this by executing following commands, replacing the values with your own access key and secret key:
+For Windows, you can do this by executing following commands, replacing the values with your own access key and secret key:
 
 ```sh
 setx AWS_ACCESS_KEY_ID YOUR_ACCESS_KEY_ID
