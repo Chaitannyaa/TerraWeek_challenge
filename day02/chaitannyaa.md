@@ -443,16 +443,48 @@ In the examples above, we defined variables with different data types, used them
 
 ## Create a variables.tf file and define a variable
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7a42b4ea-3cfe-4567-956c-10e3f535e8c2)
 
 ## Use the variable in a main.tf file to create a "local_file" resource
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7a5a4e9f-f003-4297-b68f-71633488e110)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/51aec1e4-a146-433f-9158-c8f268d3e6d1)
+
+```sh
+terraform init
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/e5ddca34-39bd-453e-b466-a142a9562f4d)
+
+```sh
+terraform plan
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/29aba4c5-4e81-4e42-a17a-2e34017c0c70)
+
+```sh
+terraform apply
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/13c84267-5557-4cb3-b68c-89bde433dcc3)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/49d10c4a-9c57-4cae-bb2e-e8cca23b10d5)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/de1bd562-a6eb-4500-ba0b-a01beb02a6d4)
 
 # Task 3: Practice writing Terraform configurations using HCL syntax
 
 ## Add required_providers to your configuration, such as Docker or AWS
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/41447fa0-e776-41fb-8126-5c3079b4047e)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/5ce5757f-2c75-4117-91c5-f700bce12832)
 
 ## Test your configuration using the Terraform CLI and make any necessary adjustments
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7981674a-8ae8-456f-a197-3802f897f70b)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/296d0e08-dca2-464b-945a-02d51d815040)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/d76fa415-19e4-483b-91c5-54fd4dbab1f7)
 
 
 Watch this 👉 https://youtu.be/kqJIKjkJ1Lo
