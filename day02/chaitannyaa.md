@@ -486,6 +486,15 @@ terraform apply
 
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/d76fa415-19e4-483b-91c5-54fd4dbab1f7)
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/2444cccc-d023-46ba-945f-acdf57d583ab)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/c843a5c1-e44f-4eb2-9c6f-3a4440ffe81e)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/fc5badb9-9b37-4956-a828-62fbbf4ab0a2)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/577eb39c-7937-4e8d-aad9-eacde15c26da)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/5d074f41-147f-4d3a-8f28-eb688ff85127)
 
 Watch this 👉 https://youtu.be/kqJIKjkJ1Lo
 
