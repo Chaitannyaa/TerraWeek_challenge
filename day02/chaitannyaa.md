@@ -498,4 +498,4 @@ terraform apply
 
 Watch this 👉 https://youtu.be/kqJIKjkJ1Lo
 
-Happy Learning :)
+Happy learning :)
