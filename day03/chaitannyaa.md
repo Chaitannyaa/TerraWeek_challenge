@@ -52,6 +52,38 @@ terraform validate
 ## Task 3: 
 Add a provisioner to the configuration file to configure the resource after it is created and use Terraform commands to apply for changes and destroy to remove resources.
 
+### What is provisioner in terraform--->
+
+In Terraform, a provisioner is a configuration block that defines how to perform actions on the resource after it has been created, updated or deleted. Provisioners can be used to install packages, run scripts or perform any other kind of post-creation or post-update configuration.
+
+Provisioners are especially useful when you need to perform actions that are not included in the provider’s functionality, such as customizing the software installed in your instances or applying a custom configuration.
+
+There are different types of provisioners supported by Terraform, including:
+
+- local-exec: runs a command on the machine running Terraform
+- remote-exec: runs a command on the remote machine through SSH
+- chef: applies a Chef role or cookbook to a node
+- ansible: applies an Ansible playbook to a node
+
+Provisioners are defined within the resource block and can be triggered on create, update, or delete operations. The local-exec and remote-exec provisioners are available with all providers, while the chef and ansible provisioners are specific to the corresponding providers.
+
+### Let's use provisioner--->
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/9827515f-d432-4689-b6e9-ca29fe6ed51b)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f0a34d3d-6cd4-4cc5-b0a2-d7f5fbf49fe7)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f0b85474-8089-4266-9d7b-ab7199fcc246)
+
+```sh
+terraform init
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/06d06afa-5fd1-492d-a820-5a291a52556b)
+
+```sh
+terraform apply
+```
+
 ## Task 4: 
 Add lifecycle management configurations to the configuration file to control the creation, modification, and deletion of the resource and use Terraform commands to apply the changes.
 
