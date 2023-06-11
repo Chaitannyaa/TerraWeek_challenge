@@ -30,7 +30,7 @@ You can use the terraform state command to view, modify, and delete resources wi
 terraform state list
 ``
 
-_ To view the current state of a specific resource, run:
+- To view the current state of a specific resource, run:
 
 ```sh
 terraform state show [resource-name]
