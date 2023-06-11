@@ -144,7 +144,10 @@ terraform apply
 ```
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6c5082f8-af1c-45e8-89b3-3ea9f1d6ef1c)
 
-
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f8b9c84c-85c7-429d-9f95-e8590ae63f5f)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/10f09d01-fbc6-40d2-b1ce-2afdabc665be)
+
+### This is how our new instance is provisioned and then first one was terminated (Lifecycle management _Create before destroy).
 
 # Happy Learning🎉🚀
