@@ -28,7 +28,7 @@ You can use the terraform state command to view, modify, and delete resources wi
 
 ```sh
 terraform state list
-``
+```
 
 - To view the current state of a specific resource, run:
 
@@ -69,38 +69,44 @@ And now, here is the complete step-by-step guide to using remote state managemen
 
 Step 1: Create an S3 bucket
 
-The first step to using S3 as the remote state backend is to create an S3 bucket in your AWS account. You can create the bucket through the AWS Management Console or using the AWS CLI. Keep in mind that the bucket name must be globally unique across all of AWS, so choose a unique name. You should also consider enabling versioning on the bucket to avoid losing any previous versions of your Terraform state.
+The first step to using S3 as the remote state backend is to create an S3 bucket in your AWS account. You can create the bucket through the AWS Management Console or using the resource in your terraform configuration file. Keep in mind that the bucket name must be globally unique across all of AWS, so choose a unique name. You should also consider enabling versioning on the bucket to avoid losing any previous versions of your Terraform state.
 
 Step 2: Modify your Terraform configuration file
 
 Once you have an S3 bucket, you can modify your Terraform configuration file to use S3 as the remote state backend. You'll need to add the backend configuration block to your configuration file. Here's an example:
 
 ```sh
-# main.tf
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+  required_version = "~> 1.3.9"
+}
+
 provider "aws" {
   region = "us-east-1"
 }
 
 resource "local_file" "DevOps" {
-        filename = "/home/ubuntu/terraform/terraform-local/terra_generated.txt"
+        filename = "C:/Users/Chait/Desktop/Terrform/remote_state_management/terra_generated.txt"
         content = "I am a DevOps engineer, who knows terraform very well"
 }
 
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "chaitannyaa-terraform-state-bucket"
-  versioning {
-    enabled = true
-  }
   lifecycle {
     prevent_destroy = true
   }
 }
 
-terraform {
-  backend "s3" {
-    bucket = "chaitannyaa-terraform-state-bucket"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
+resource "aws_s3_bucket_versioning" "my_bucket_versioning" {
+  bucket = aws_s3_bucket.my_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 ```
@@ -113,6 +119,7 @@ After modifying your Terraform configuration file, you can initialize the S3 bac
 ```sh
 terraform init
 ```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/1a187c06-955c-468f-a6ba-71ca0899e3d2)
 
 Step 4: Use your configuration file to manage resources
 
@@ -121,6 +128,13 @@ Now that you have set up the remote state backend, you can use your Terraform co
 ```sh
 terraform apply
 ```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/67df6b2d-8d99-42ea-af1f-43b7bfd60fdc)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/e5df98f0-84d1-4733-a413-9987f4f529f8)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/b0a074ae-adbd-47d4-9f68-67e045543a57)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7159d963-2c41-495d-995e-f6d5c14b4456)
 
 Step 5: Access your state file
 
@@ -129,6 +143,7 @@ If you need to access your state file for any reason, you can use the terraform 
 ```sh
 terraform state list
 ```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/3238b300-b93b-473a-9b84-88150e38967f)
 
 ## Remote State Configuration
 
@@ -141,5 +156,81 @@ terraform {
   }
 }
 ```
+### Let's add backend S3 block to use it for remote state files storage--->
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+  required_version = "~> 1.3.9"
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "local_file" "DevOps" {
+        filename = "C:/Users/Chait/Desktop/Terrform/remote_state_management/terra_generated.txt"
+        content = "I am a DevOps engineer, who knows terraform very well"
+}
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "chaitannyaa-terraform-state-bucket"
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+resource "aws_s3_bucket_versioning" "my_bucket_versioning" {
+  bucket = aws_s3_bucket.my_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+terraform {
+  backend "s3" {
+    bucket = "chaitannyaa-terraform-state-bucket"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+```
+
+```sh
+terraform init
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/0a1e3553-72f2-4800-a50c-e4b51353d916)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/4b035dc5-4cd5-4848-afa2-29022282cdd6)
+
+```sh
+terraform apply
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/22366cbb-6b50-4a9e-af1a-b9f71bf58731)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6b56aa62-851e-4f73-b2f9-727521f94ac2)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/25f4948c-085b-4990-af5c-024e69b9ec95)
+
+### Now do change your terraform configuration to operate changes to it--->
+
+```sh
+terraform apply
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/e80b13f7-56a9-440c-81a0-c9072024b086)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/ff9eb099-cc95-4b23-94a3-32fed4a034d9)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/de99e564-e409-4f49-969c-c1dc446776bf)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/d0b864a8-87c5-4523-987f-169eb05fe920)
+
+I hope you got the use of remote state storage management using AWS S3.
 Happy Learning :)
 
