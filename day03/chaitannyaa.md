@@ -69,9 +69,11 @@ Provisioners are defined within the resource block and can be triggered on creat
 
 ### Let's use provisioner--->
 
-![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/9827515f-d432-4689-b6e9-ca29fe6ed51b)
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6101d15c-3bc7-4e3d-b30c-0c44aa864ca2)
 
-![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f0a34d3d-6cd4-4cc5-b0a2-d7f5fbf49fe7)
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7cb8f375-cb14-49ea-a77c-56d658ef9a99)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/b6d718f5-bece-42ec-bd62-751347953d8f)
 
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f0b85474-8089-4266-9d7b-ab7199fcc246)
 
@@ -83,6 +85,13 @@ terraform init
 ```sh
 terraform apply
 ```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/0110dada-d12b-4d72-bbbe-b72a99db81fe)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/fa2c5cc9-615d-4ae5-be0d-0e5e791bc8ac)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7b94339d-d5ee-4331-8694-9bc286efa66a)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7177fafa-15b2-45f4-a828-124c081b2737)
 
 ## Task 4: 
 Add lifecycle management configurations to the configuration file to control the creation, modification, and deletion of the resource and use Terraform commands to apply the changes.
