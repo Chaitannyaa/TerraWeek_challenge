@@ -96,4 +96,55 @@ terraform apply
 ## Task 4: 
 Add lifecycle management configurations to the configuration file to control the creation, modification, and deletion of the resource and use Terraform commands to apply the changes.
 
+Terraform lifecycle management configurations are used to control the creation, modification, and deletion of resources in your infrastructure. Lifecycle management configurations help you manage the behavior of your infrastructure over time, by specifying how Terraform should handle updates and destructions for certain resources.
+
+Here are some of the common scenarios where lifecycle configurations might be useful:
+
+When you want to replace an instance with a new one, but you want to avoid downtime. In this case, you can create the new instance before destroying the old one, by setting create_before_destroy flag to true.
+When you want to disable resource deletion, to avoid accidental deletion of important resources. In this case, you can set prevent_destroy flag to true.
+When you want to update a resource only under certain conditions. In this case, you can set prevent_resource_replacement to true and specify the conditions for the update.
+
+Here's an example of the lifecycle configuration block syntax:
+
+```sh
+resource "my_resource" "example" {
+
+  # resource configuration
+
+  lifecycle {
+    create_before_destroy = true|false
+    prevent_destroy       = true|false
+    ignore_changes        = [ attribute_name, ... ]
+    prevent_replacement   = true|false
+  }
+}
+```
+Here's what each parameter does:
+
+- **create_before_destroy**: This parameter is used to control whether the resource is created before destroying the old one. If set to true, Terraform will create the new resource before destroying the old one. This can help prevent downtime during updates.
+
+- **prevent_destroy**: This parameter is used to control whether the resource can be destroyed. If set to true, Terraform will not be able to destroy the resource, even if you try to force it. This can help prevent accidental deletion of important resources.
+
+- **ignore_changes**: This parameter is used to specify attributes that should be ignored when Terraform calculates if the resource should be updated or not. This can help prevent certain attributes from being updated under certain conditions.
+
+- **prevent_replacement**: This parameter is used to control whether the resource should be replaced when it's updated. If set to true, Terraform will try to update the resource in-place, without replacing it.
+
+### Let's use it in our configuration--->
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/21ebb30a-3cda-40b2-89ca-fb0b7fc8bf04)
+
+**I will change my web server from Nginx to Apache2**
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/1b33d0d7-c224-4785-b179-1c239a4b9797)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/d02a9110-7f1d-4aa0-9316-dab03024e3fe)
+
+```sh
+terraform apply
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6c5082f8-af1c-45e8-89b3-3ea9f1d6ef1c)
+
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f8b9c84c-85c7-429d-9f95-e8590ae63f5f)
+
 # Happy Learning🎉🚀
