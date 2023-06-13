@@ -96,8 +96,11 @@ In this example, we're using the ec2-instance module we defined earlier and pass
 There are several benefits to using modules in Terraform:
 
 **Reusability**: Modules make it easy to reuse infrastructure code across multiple projects or environments. This saves time and reduces errors.
+
 **Simplicity**: Modules provide a simple, standardized way to organize infrastructure code, which makes it easier to read, write, and maintain.
+
 **Scalability**: With modules, you can scale your infrastructure code to handle complex deployments and large teams.
+
 **Abstraction**: Modules abstract away complex infrastructure details, allowing you to focus on the higher-level functionality of your application.
   
 ## Task 2: 
