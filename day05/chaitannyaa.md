@@ -341,7 +341,7 @@ terraform apply
   
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/ea30ae34-d0dc-4793-a565-f95ef8662546)
   
-![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/b8d194cb-f2e3-4dfe-897c-cc474fa16f7c)
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/294b2ca4-0f49-4af7-afe9-d70fe00ff58f)
 
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/b1c1c49b-b72d-48ac-b7c3-df135954b42a)
 
