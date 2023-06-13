@@ -172,6 +172,7 @@ module "infra_module" {
   region                  = "us-west-2"
   resource_group_name     = "my-resource-group"
   storage_bucket_name     = "my-storage-bucket"
+  location                = "US"
 }
 ```
   
@@ -249,5 +250,100 @@ In this example, Terraform is referencing the aws module for creating EC2 instan
   
 - What are the ways to **lock Terraform module versions**? Explain with code snippets.
 
-Happy Learning 😊
+### lock Terraform module versions with .terraform.lock.hcl file
+  
+The .terraform.lock.hcl file is automatically created when you run terraform init command in a Terraform project directory. It is used to lock the versions of the providers and modules used in your Terraform configuration. It ensures that subsequent runs of terraform init and terraform apply use the same versions of the providers and modules, providing consistent behavior across different environments and team members.
 
+It includes information about the provider versions and module sources that were resolved and used during the terraform init command.
+  
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/a5105731-b050-422b-834e-3644d22a1f7c)
+
+It's important to include the .terraform.lock.hcl file in version control systems (like Git) along with your Terraform configuration files (*.tf files). This ensures that everyone working on the project uses the same versions of providers and modules, preventing unintentional updates or discrepancies that may cause issues during deployments.
+
+Overall, the .terraform.lock.hcl file helps maintain reproducibility and stability in Terraform projects by fixing the versions of providers and modules.
+To lock the version of a Terraform module, you'll need to specify a version constraint in your Terraform code. This can be done using either the version parameter or the source parameter in your module definition.
+
+### lock Terraform module versions with version constraint using the version parameter
+  
+Here's an example of how to specify a version constraint using the version parameter:
+
+```sh
+# main.tf
+# Use the ec2-instance module at version 1.0.0
+module "example" {
+  source  = "./modules/ec2-instance"
+  version = "1.0.0"
+
+  instance_type = "t2.micro"
+  ami           = "ami-0c55b159cbfafe1f0"
+}
+```
+  
+In this example, we're specifying that we want to use version 1.0.0 of the ec2-instance module. Terraform will check to see if this version of the module is available in your configured module registry and will fail if it's not.
+
+You can also use the source parameter to specify a version constraint:
+
+```sh
+# main.tf
+
+# Use the ec2-instance module at version 1.*.*
+module "example" {
+  source = "./modules/ec2-instance?ref=1.0.0"
+
+  instance_type = "t2.micro"
+  ami           = "ami-0c55b159cbfafe1f0"
+}
+```
+
+In this example, we're specifying that we want to use any version of the ec2-instance module that starts with 1.. The ref parameter is used to specify the exact version to use.
+
+By locking the version of your Terraform modules, you can ensure that your deployments are consistent and reproducible over time.
+  
+# Let me show you the hands-on experience of above theory about modules--->
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f29a7489-93c8-4022-8f26-4568f077c630)
+
+## Create two modules with complete independent configuration dependencies:
+
+- module_1 : To provision a docker container serving website
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/4c72e57a-4f3f-49b2-a251-4eb537596736)
+  
+- module_2 : To provision a docker container serving website
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/ad66e6f4-227d-4549-afbf-577d58567572)
+  
+## Create terrafom main.tf configuration file to run both modules combinely to provision our infrastructure:
+  
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/a28bb48e-0e5b-4090-8076-e6f773e7a476)
+
+```sh
+terraform init
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/9ec0e0c1-8eff-4d8a-99a2-2616a2b25876)
+
+```sh
+terraform plan
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/cdcf347c-0013-4c7c-94c7-74547945a5c0)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/fc8bc642-ac03-4ccd-8775-82c5e9337d4a)
+  
+```sh
+terraform apply
+```  
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/0fdff4a9-4d5a-4a14-9433-b3980bce632a)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/f3b0d0c5-3f4f-4e38-b20c-8ecb1d138e9c)
+  
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/ea30ae34-d0dc-4793-a565-f95ef8662546)
+  
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/b8d194cb-f2e3-4dfe-897c-cc474fa16f7c)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/b1c1c49b-b72d-48ac-b7c3-df135954b42a)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/2c319eb9-42ad-4009-b7fc-1b81d4978ad5)
+
+Today, We learned about modules in Terraform, their benefits, creating modules, modular composition, module versioning, and locking module versions. Modules are a powerful feature in Terraform that promote code reuse, scalability, and maintainability in infrastructure provisioning.
+
+Keep exploring and experimenting with Terraform modules to build robust and scalable infrastructure configurations. Happy learning! 😊
