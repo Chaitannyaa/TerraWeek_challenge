@@ -186,7 +186,7 @@ By using this module, you can easily create an EC2 instance in AWS, a Resource G
 ## Task 3: 
 - Dig into **modular composition** and **module versioning**.
   
-Modular composition refers to the ability to combine multiple modules together to create more complex infrastructure configurations. It allows you to build upon existing modules and compose them in a way that suits your specific requirements. With modular composition, you can create higher-level abstractions and assemble infrastructure components like building blocks.
+**Modular composition** refers to the ability to combine multiple modules together to create more complex infrastructure configurations. It allows you to build upon existing modules and compose them in a way that suits your specific requirements. With modular composition, you can create higher-level abstractions and assemble infrastructure components like building blocks.
 
 Modular composition is achieved by leveraging the module block in Terraform. Here's an example of how you might combine two modules to create more complex infrastructure configurations:
 
@@ -209,7 +209,7 @@ module "web" {
 
 In this example, we're using the terraform-aws-vpc and terraform-aws-web-server-cluster modules to create a VPC and a web server cluster. The web module depends on the vpc module as it requires the VPC security group ID as well as the private subnet IDs.
 
-Module versioning is an essential aspect of managing modules in Terraform. It allows you to track and control the versions of modules used in your infrastructure deployments. By specifying module versions, you ensure that deployments are predictable, reproducible, and resistant to breaking changes. Module versions also provide the ability to introduce new features or improvements without affecting existing deployments.
+**Module versioning** is an essential aspect of managing modules in Terraform. It allows you to track and control the versions of modules used in your infrastructure deployments. By specifying module versions, you ensure that deployments are predictable, reproducible, and resistant to breaking changes. Module versions also provide the ability to introduce new features or improvements without affecting existing deployments.
 
 Terraform provides several approaches for versioning modules. Here are some examples:
 
