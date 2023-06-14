@@ -257,6 +257,7 @@ GCP:
 ```sh
 export GOOGLE_CREDENTIALS=$(cat path/to/service-account-key.json)
 ```
+
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/1d35efac-5b9e-4c0c-873e-fbe32bd4d766)
 
 Or
@@ -269,20 +270,99 @@ Or
 
 - Choose a cloud platform (AWS, Azure, Google Cloud, or others) as your target provider for this task.
 
-  
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/27e82d8a-248e-4a29-8a51-9bc6f70889f0)
+
 - Create a Terraform configuration file named `main.tf` and configure the chosen provider within it.
 
-  
+**Configuration file to create a aws_security_group**
+
+```sh
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+  required_version = "~> 1.3.9"
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_security_group" "main" {
+  egress = [
+    {
+      cidr_blocks      = [ "0.0.0.0/0" ]
+      description      = ""
+      from_port        = 0
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "-1"
+      security_groups  = []
+      self             = false
+      to_port          = 0
+    }
+  ]
+  ingress = [
+    {
+      cidr_blocks      = ["0.0.0.0/0"]
+      description      = ""
+      from_port        = 22
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "tcp"
+      security_groups  = []
+      self             = false
+      to_port          = 22
+    },
+    {
+      cidr_blocks      = ["0.0.0.0/0"]
+      description      = ""
+      from_port        = 80
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "tcp"
+      security_groups  = []
+      self             = false
+      to_port          = 80
+    }
+  ]
+
+  tags = { Name = "Terraform_Generated" }
+}
+```  
 - Authenticate with the chosen cloud platform using the appropriate authentication method (e.g., access keys, service principals, or application default credentials).
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/9f2ec5c0-5ac9-4315-8e5b-400961ada0cc)
 
-- Deploy a simple resource using the chosen provider. For example, if using AWS, you could provision a Virtual Private Cloud (VPC), Subnet Group, Route Table, Internet Gateway, or a virtual machine.
+- Deploy a simple resource using the chosen provider. For example, if using AWS, you could provision aws_security_group.
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/7bd2d1c3-0204-4011-804b-57216453f58c)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/a6c26c59-2344-416a-a3a5-19d152abd482)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/d7362092-5b16-4077-860d-1f31acbfe8c1)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/d2b4caf2-f9b6-4389-ba77-d53d3943816d)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/1dc65671-1d4f-453b-a5ae-45c8675030e0)
 
 - Experiment with updating the resource configuration in your `main.tf` file and apply the changes using Terraform. Observe how Terraform intelligently manages the resource changes.
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/632ed873-9aa4-4074-b31b-9e99fbb51aa2)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/a8caf79b-c3d8-4ea2-b723-0e878ec78251)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/35313d20-1733-43a9-ac65-6911529b7ea8)
 
 - Once you are done experimenting, use the `terraform destroy` command to clean up and remove the created resources.
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/5b9d07ee-ceb8-4f9f-aa34-bf243cd079a1)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6f525286-ccdb-4772-ad9e-9feab6eb238c)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/34519860-1f8c-4438-baf6-1b0145bd8e27)
 
 ### Happy Learning! 🌍💻
