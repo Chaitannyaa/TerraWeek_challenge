@@ -184,7 +184,86 @@ In this approach, you can authenticate using the instance's built-in metadata se
 
 - Set up authentication for each provider on your local machine to establish the necessary credentials for interaction with the respective cloud platforms.
 
+**Set up the authentication for AWS, Azure, and GCP--->**
 
+AWS:
+
+- Create an AWS account if you do not have one already.
+
+https://repost.aws/knowledge-center/create-and-activate-aws-account
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6cfa939e-d78d-4ec2-b594-888aa7f22ed4)
+
+- Create an IAM user with programmatic access and attach the necessary permissions to access and manipulate your AWS resources.
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/4a15fbaa-d2f0-471f-8973-33ada6833cc3)
+
+- Create an access key and secret key for the IAM user and note them down.
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/93b62e87-152d-4a9f-809e-f6ed6ecdeb07)
+
+- Export the AWS access key and secret key as environment variables.
+
+**For Linux and macOS, you can do this by executing the following commands, replacing the values with your access key and secret key:**
+
+```sh
+export AWS_ACCESS_KEY_ID="your_aws_access_key"
+export AWS_SECRET_ACCESS_KEY="your_aws_secret_key"
+```
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/c090cb77-29f0-49b3-b52c-62cbd2994ffb)
+
+**For Windows, you can do this by executing the following commands, replacing the values with your access key and secret key:**
+
+```sh
+setx AWS_ACCESS_KEY_ID YOUR_ACCESS_KEY_ID
+setx AWS_SECRET_ACCESS_KEY YOUR_SECRET_ACCESS_KEY
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/9bbb1ed6-5dc0-47cd-b15f-5737750351e5)
+
+Azure:
+
+- Create an Azure account if you do not have one already.
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/93db23cd-782c-4b26-9cf5-d23368f3c39a)
+
+- Create a service principal with the necessary permissions to access and manipulate your Azure resources.
+
+- Note down the Azure subscription ID, client ID (also known as application ID), client secret (also known as password), and tenant ID.
+
+- Export the Azure subscription ID, client ID, client secret, and tenant ID as environment variables. For Linux and macOS, you can do this by adding the following lines to your .bashrc or .bash_profile file, replacing the values with your own subscription ID, client ID, client secret, and tenant ID:
+
+```sh
+export ARM_SUBSCRIPTION_ID="your_subscription_id"
+export ARM_CLIENT_ID="your_client_id"
+export ARM_CLIENT_SECRET="your_client_secret"
+export ARM_TENANT_ID="your_tenant_id"
+```
+
+GCP:
+
+- Create a GCP account if you do not have one already.
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/4f2525a1-3f94-4320-bc7f-9b7f135baaba)
+
+- Set up the appropriate permissions to access and manipulate your GCP resources.
+
+- Create a new service account key and note down the downloaded key file's path.
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/e7591571-d2f6-471a-9772-488f8e958416)
+
+- Export the GCP service account key as an environment variable. For Linux and macOS, you can do this by running the following command, replacing the path/to/service-account-key.json with the actual path and filename of your service account key file:
+
+```sh
+export GOOGLE_CREDENTIALS=$(cat path/to/service-account-key.json)
+```
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/1d35efac-5b9e-4c0c-873e-fbe32bd4d766)
+
+Or
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/26e784c9-0aef-496e-899f-4499df0ddbb4)
+
+**With your environment variables set up, you can now use Terraform to provision and manage your AWS, Azure, or GCP resources.**
 
 ## Gain hands-on experience using Terraform providers for your chosen cloud platform.
 
