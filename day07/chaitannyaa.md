@@ -184,22 +184,29 @@ Here's how you can get started with each one:
 
 ![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/dd426ad0-e325-4438-96b4-252f53d0d153)
 
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/57c2b574-eda7-4b42-9aa1-5fc6822826c5)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/dac6f28a-79a4-4a4e-8e5d-67fed23b0c68)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/6fed5322-0ed7-4496-9946-3bb47c88cb6b)
+
+![image](https://github.com/Chaitannyaa/TerraWeek_challenge/assets/117350787/60a3af6b-fe88-43e9-a419-448f1324908d)
 
 5. Configure your Terraform code to use the remote backend. This involves adding a backend block in your configuration file, specifying the remote backend, and providing your Terraform Cloud API token. For example:
 
 ```sh
 terraform {
   backend "remote" {
-    organization = "my-organization"
+    organization = "CRMGOps"
 
     workspaces {
-      name = "my-workspace"
+      name = "Terraform_Practice"
     }
   }
 }
 ```
 
-6. Initialize and apply your Terraform configuration by running terraform init and terraform apply locally or by starting a run in Terraform Cloud. Terraform Cloud will automatically handle the plan, apply, and approval processes.
+6. Initialize and apply your Terraform configuration by running `terraform init` and `terraform apply` locally or by starting a run in Terraform Cloud. Terraform Cloud will automatically handle the plan, apply, and approval processes.
 
 7. Monitor the status of your deployment in the workspace page in Terraform Cloud. You can see the state of the infrastructure, view logs, and see who made changes.
 
@@ -223,15 +230,18 @@ terraform {
 
 ## Learn best practices for organizing your Terraform code, version control, and CI/CD integration.
 
-- Familiarize yourself with Terraform best practices, including code organization, module usage, and naming conventions.
+- ### Familiarize yourself with Terraform best practices, including code organization, module usage, and naming conventions.
 
 Terraform is a powerful tool for managing infrastructure as code, and there are some best practices that can help you write efficient and maintainable Terraform code. Let's explore them:
 
 **Code Organization**
 
 1. Use a consistent directory structure for your Terraform code. Consider organizing it by resource types, cloud providers, or environments.
+
 2. Break large configurations into smaller, more manageable modules. Each module should do one thing and do it well.
+
 3. Use factored modules when possible, which are modules that have been broken down further into smaller components. This makes it much easier to reuse and combine modules in different ways.
+
 4. Use version control for your Terraform code, ideally a Git repository. This enables collaboration, versioning, and change tracking.
 
 **Naming Conventions**
@@ -345,17 +355,25 @@ stage('terraform apply') {
 Terraform Cloud and Terraform Enterprise features related to collaboration, infrastructure management, and workflow automation:
 
 1. Collaboration:
+
    - **Remote State Management**: Both Terraform Cloud and Terraform Enterprise offer centralized storage for Terraform state files. This allows multiple team members to work on the same infrastructure code simultaneously, ensuring consistent and synchronized infrastructure deployments.
+
    - **Version Control Integration**: Integration with popular version control systems like Git enables versioning and tracking of changes to infrastructure code. It facilitates collaboration, code reviews, and easy rollbacks.
+
    - **Collaborative Workspaces**: Workspaces in both platforms allow teams to separate and manage different infrastructure environments (e.g., development, staging, production). This segregation helps maintain isolation and clarity in managing infrastructure configurations.
 
 2. Infrastructure Management:
+
    - **Policy Enforcement**: Terraform Cloud and Terraform Enterprise provide policy enforcement capabilities to define and enforce compliance rules, best practices, and security standards across infrastructure code. This ensures adherence to organizational standards and reduces the risk of misconfigurations.
+
    - **Resource Management**: Both platforms offer features to track and manage infrastructure resources provisioned through Terraform. This includes visibility into resource dependencies, changes, and status tracking, providing insights into the overall infrastructure state.
+
    - **Module Management**: Terraform Cloud and Terraform Enterprise support the use of modules, which are reusable components that encapsulate infrastructure configurations. They facilitate modular and scalable infrastructure design, code reuse, and maintainability.
 
 3. Workflow Automation:
+
    - **Run Automation**: Terraform Cloud and Terraform Enterprise enable automation of Terraform runs, including plan and apply operations. This allows for scheduled or triggered runs based on events (e.g., code commits, infrastructure triggers), reducing manual effort and streamlining the deployment process.
+
    - **API and CLI Access**: Both platforms offer APIs and command-line interfaces (CLIs) that allow for programmatic access and integration with external systems. This enables custom workflow automation, integration with CI/CD pipelines, and automation of common infrastructure tasks.
 
 It's important to note that while Terraform Cloud is a SaaS platform provided by HashiCorp, Terraform Enterprise is the self-hosted, on-premises version. They share many similar features but differ in terms of deployment options, control, and security based on your organization's requirements.
